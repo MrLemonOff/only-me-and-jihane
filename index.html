@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تجهيز للإختبار الجهوي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.rtl.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
+        
+        :root {
+            --pink-theme: #ffd6e7;
+            --pink-dark: #ffadd2;
+            --blue-theme: #d6e7ff;
+            --blue-dark: #add2ff;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f8f9fa;
+            transition: background-color 0.3s ease;
+        }
+        
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-main {
+            border-radius: 10px;
+            padding: 12px 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 10px;
+            font-size: 18px;
+        }
+        
+        .btn-lmn {
+            background-color: var(--blue-theme);
+            color: #333;
+            border: 2px solid var(--blue-dark);
+        }
+        
+        .btn-lmn:hover {
+            background-color: var(--blue-dark);
+        }
+        
+        .btn-jihane {
+            background-color: var(--pink-theme);
+            color: #333;
+            border: 2px solid var(--pink-dark);
+        }
+        
+        .btn-jihane:hover {
+            background-color: var(--pink-dark);
+        }
+        
+        .countdown-container {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            color: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .countdown-value {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .countdown-label {
+            font-size: 14px;
+        }
+        
+        .quest-card {
+            border-right: 5px solid #2575fc;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .quest-card.today {
+            border-right: 5px solid #ff6b6b;
+            background-color: #fff9f9;
+        }
+        
+        .subject-badge {
+            font-size: 12px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-left: 5px;
+        }
+        
+        .badge-french {
+            background-color: #ffcdd2;
+            color: #c62828;
+        }
+        
+        .badge-islamic {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .badge-history {
+            background-color: #fff9c4;
+            color: #f57f17;
+        }
+        
+        .badge-geography {
+            background-color: #bbdefb;
+            color: #1565c0;
+        }
+        
+        .badge-arabic {
+            background-color: #d1c4e9;
+            color: #4527a0;
+        }
+        
+        .lesson-list {
+            max-height: 500px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        
+        .lesson-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .lesson-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .lesson-item.completed {
+            background-color: #f0fff0;
+        }
+        
+        .lesson-item.today-task {
+            background-color: #fff0f0;
+        }
+        
+        .check-icon {
+            color: #4caf50;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .user-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-size: 30px;
+            color: white;
+        }
+        
+        .lmn-theme {
+            background-color: #f0f8ff;
+        }
+        
+        .lmn-theme .user-avatar {
+            background-color: var(--blue-dark);
+        }
+        
+        .jihane-theme {
+            background-color: #fff0f8;
+        }
+        
+        .jihane-theme .user-avatar {
+            background-color: var(--pink-dark);
+        }
+        
+        .nav-tabs .nav-link {
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .nav-tabs .nav-link.active {
+            border-color: #2575fc;
+            color: #2575fc;
+            background-color: transparent;
+        }
+        
+        .jihane-theme .nav-tabs .nav-link.active {
+            border-color: #ff6b8b;
+            color: #ff6b8b;
+        }
+        
+        .time-allocation {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .countdown-value {
+                font-size: 18px;
+            }
+            
+            .btn-main {
+                padding: 8px 20px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="main-container">
+        <!-- Login Screen (Default) -->
+        <div id="loginScreen" class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card p-5 mt-5">
+                        <h1 class="mb-4"><i class="fas fa-graduation-cap"></i> تجهيز للإختبار الجهوي</h1>
+                        <p class="lead mb-5">قم بتسجيل الدخول لتنظيم دراستك والتحضير للإختبار</p>
+                        
+                        <div class="d-flex justify-content-center flex-wrap">
+                            <button id="lmnLogin" class="btn btn-main btn-lmn">
+                                <i class="fas fa-user-graduate"></i> دخول كـ LMN
+                            </button>
+                            <button id="jihaneLogin" class="btn btn-main btn-jihane">
+                                <i class="fas fa-user-graduate"></i> دخول كـ Jihane
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main App (Hidden initially) -->
+        <div id="mainApp" class="container" style="display: none;">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h2 id="userName">اسم المستخدم</h2>
+            </div>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+                <h3>متبقي حتى الإختبار</h3>
+                <div class="d-flex justify-content-center">
+                    <div class="mx-2 text-center">
+                        <div id="days" class="countdown-value">00</div>
+                        <div class="countdown-label">يوم</div>
+                    </div>
+                    <div class="mx-2 text-center">
+                        <div id="hours" class="countdown-value">00</div>
+                        <div class="countdown-label">ساعة</div>
+                    </div>
+                    <div class="mx-2 text-center">
+                        <div id="minutes" class="countdown-value">00</div>
+                        <div class="countdown-label">دقيقة</div>
+                    </div>
+                    <div class="mx-2 text-center">
+                        <div id="seconds" class="countdown-value">00</div>
+                        <div class="countdown-label">ثانية</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Tabs -->
+            <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="today-tab" data-bs-toggle="tab" data-bs-target="#today" type="button" role="tab" aria-controls="today" aria-selected="true">
+                        <i class="fas fa-calendar-day"></i> مهام اليوم
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="calendar-tab" data-bs-toggle="tab" data-bs-target="#calendar" type="button" role="tab" aria-controls="calendar" aria-selected="false">
+                        <i class="fas fa-calendar-alt"></i> الجدول الزمني
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="lessons-tab" data-bs-toggle="tab" data-bs-target="#lessons" type="button" role="tab" aria-controls="lessons" aria-selected="false">
+                        <i class="fas fa-book"></i> قائمة الدروس
+                    </button>
+                </li>
+            </ul>
+            
+            <!-- Tab Contents -->
+            <div class="tab-content" id="myTabContent">
+                <!-- Today's Quests -->
+                <div class="tab-pane fade show active" id="today" role="tabpanel" aria-labelledby="today-tab">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h3>مهام اليوم <span id="todayDate" class="badge bg-primary"></span></h3>
+                            <div id="studyHours" class="time-allocation"></div>
+                        </div>
+                        <div class="card-body">
+                            <div id="todayQuests" class="quest-container">
+                                <!-- Today's quests will be added here -->
+                            </div>
+                            <div class="text-center mt-4">
+                                <button id="completeDay" class="btn btn-success">
+                                    <i class="fas fa-check-circle"></i> أكملت دراسة اليوم
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Calendar View -->
+                <div class="tab-pane fade" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>الجدول الزمني للمذاكرة</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="upcomingQuests" class="quest-container">
+                                <!-- Upcoming quests will be added here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lessons List -->
+                <div class="tab-pane fade" id="lessons" role="tabpanel" aria-labelledby="lessons-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>قائمة الدروس</h3>
+                            <div class="form-group mt-2">
+                                <input type="text" id="lessonSearch" class="form-control" placeholder="ابحث عن درس...">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="accordion" id="lessonsAccordion">
+                                <!-- French -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFrench">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFrench" aria-expanded="true" aria-controls="collapseFrench">
+                                            <span class="subject-badge badge-french">الفرنسية</span> دروس اللغة الفرنسية
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFrench" class="accordion-collapse collapse show" aria-labelledby="headingFrench" data-bs-parent="#lessonsAccordion">
+                                        <div class="accordion-body">
+                                            <div id="frenchLessons" class="lesson-list">
+                                                <!-- French lessons will be added here -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Islamic -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingIslamic">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIslamic" aria-expanded="false" aria-controls="collapseIslamic">
+                                            <span class="subject-badge badge-islamic">الإسلاميات</span> دروس الإسلاميات
+                                        </button>
+                                    </h2>
+                                    <div id="collapseIslamic" class="accordion-collapse collapse" aria-labelledby="headingIslamic" data-bs-parent="#lessonsAccordion">
+                                        <div class="accordion-body">
+                                            <div id="islamicLessons" class="lesson-list">
+                                                <!-- Islamic lessons will be added here -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- History -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingHistory">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHistory" aria-expanded="false" aria-controls="collapseHistory">
+                                            <span class="subject-badge badge-history">التاريخ</span> دروس التاريخ
+                                        </button>
+                                    </h2>
+                                    <div id="collapseHistory" class="accordion-collapse collapse" aria-labelledby="headingHistory" data-bs-parent="#lessonsAccordion">
+                                        <div class="accordion-body">
+                                            <div id="historyLessons" class="lesson-list">
+                                                <!-- History lessons will be added here -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Geography -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingGeography">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGeography" aria-expanded="false" aria-controls="collapseGeography">
+                                            <span class="subject-badge badge-geography">الجغرافيا</span> دروس الجغرافيا
+                                        </button>
+                                    </h2>
+                                    <div id="collapseGeography" class="accordion-collapse collapse" aria-labelledby="headingGeography" data-bs-parent="#lessonsAccordion">
+                                        <div class="accordion-body">
+                                            <div id="geographyLessons" class="lesson-list">
+                                                <!-- Geography lessons will be added here -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Arabic -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingArabic">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseArabic" aria-expanded="false" aria-controls="collapseArabic">
+                                            <span class="subject-badge badge-arabic">العربية</span> دروس اللغة العربية
+                                        </button>
+                                    </h2>
+                                    <div id="collapseArabic" class="accordion-collapse collapse" aria-labelledby="headingArabic" data-bs-parent="#lessonsAccordion">
+                                        <div class="accordion-body">
+                                            <div id="arabicLessons" class="lesson-list">
+                                                <!-- Arabic lessons will be added here -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Logout Button -->
+            <div class="text-center mt-4 mb-5">
+                <button id="logoutBtn" class="btn btn-outline-secondary">
+                    <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        
+
+
+// Data structure
+const subjects = {
+    french: {
+        name: "الفرنسية",
+        badge: "badge-french",
+        icon: "fas fa-language"
+    },
+    islamic: {
+        name: "الإسلاميات",
+        badge: "badge-islamic",
+        icon: "fas fa-mosque"
+    },
+    history: {
+        name: "التاريخ",
+        badge: "badge-history",
+        icon: "fas fa-landmark"
+    },
+    geography: {
+        name: "الجغرافيا",
+        badge: "badge-geography",
+        icon: "fas fa-globe-americas"
+    },
+    arabic: {
+        name: "العربية",
+        badge: "badge-arabic",
+        icon: "fas fa-pen-fancy"
+    }
+};
+
+const lessons = {
+    french: [
+        "Les champs lexicaux",
+        "Les registres de langue",
+        "La focalisation ou point de vue",
+        "L'énonciation",
+        "Les figures de style",
+        "Les niveaux de langue",
+        "Récit et discours",
+        "Le discours rapporté",
+        "Fiche de lecture de La Boite A Merveille",
+        "Fiche de lecture de dernier jour d'un condamné",
+        "Fiche de lecture de antigone",
+        "Resume chapitre par chapitre de la boite a merveille",
+        "Resume scene par scene de antigone",
+        "Les titres de tous Les chapiter de le dernier jour d'un condamné",
+        "Les vocabulaire de la boite a merveille",
+        "Les vocabulaire de antigone",
+        "Les vocabulaire de le dernier jour d'un condamné",
+        "6 argument pour tout Les sujet"
+    ],
+    islamic: [
+        "الإيمان والغيب",
+        "الإيمان والعلم",
+        "الإيمان والفلسفة",
+        "الإيمان و عمارة الأرض",
+        "صلح الحديبية وفتح مكة",
+        "الرسول ص مفاوضا ومستشيرا",
+        "عثمان بن عفان البذل والحياء",
+        "الرسول ص في بيته",
+        "الزواج (الأحكام والمقاصد)",
+        "الطلاق (الأحكام والمقاصد)",
+        "رعاية الأطفال وحقوقهم",
+        "الأسرة نواة المجتمع",
+        "الوفاء بالأمانة والمسؤولية",
+        "الصبر واليقين",
+        "العفة و الحياء",
+        "التوسط في استغلال البيئة",
+        "الكفاءة والاستحقاق أساس التكليف",
+        "العفو والتسامح",
+        "وقاية المجتمع من تفشي الفواحش",
+        "السبعة الذين يظلهم الله",
+        "20 اية من صورة يوسف"
+    ],
+    history: [
+        "التحولات الكبرى للعالم الرأسمالي و انعكاساتها خلال القرنين 19م و 20م",
+        "التحولات الاقتصادية والمالية والاجتماعية والفكرية في العالم في القرن 19م",
+        "التنافس الامبريالي واندلاع الحرب العالمية الأولى",
+        "اليقظة الفكرية بالمشرق العربي",
+        "الضغوط الاستعمارية على المغرب ومحاولات الإصلاح",
+        "أوروبا من نهاية الحرب العالمية الأولى إلى أزمة 1929م",
+        "الحرب العالمية الثانية الأسباب والنتائج",
+        "نظام الحماية بالمغرب والاستغلال الاستعماري",
+        "نضال المغرب من أجل تحقيق الاستقلال واستكمال الوحدة الترابية"
+    ],
+    geography: [
+        "مفهوم التنمية: تعدد المقاربات - التقسيمات الكبرى للعالم - خريطة التنمية",
+        "المجال المغربي - الموارد الطبيعية والبشرية",
+        "الاختيارات الكبرى السياسة إعداد التراب الوطني",
+        "التهيئة الحضرية والريفية - أزمة المدينة والريف وأشكال التدخل",
+        "العالم العربي . مشكل الماء وظاهرة التصحر",
+        "الولايات المتحدة الأمريكية قوة اقتصادية عظمى",
+        "الاتحاد الأوربي نحو اندماج شامل",
+        "الصين قوة اقتصادية صاعدة"
+    ],
+    arabic: [
+        "درس وصف صورة",
+        "درس التمييز",
+        "درس ربط بين المواضيع"
+    ]
+};
+
+const users = {
+    lmn: {
+        name: "LMN",
+        theme: "lmn-theme",
+        schedule: {
+            "1": { min: 3, max: 4 },  // Monday
+            "2": { min: 2, max: 3 },  // Tuesday
+            "3": { min: 3, max: 4 },  // Wednesday
+            "4": { min: 1, max: 2 },  // Thursday
+            "5": { min: 3, max: 4 },  // Friday
+            "6": { min: 3, max: 4 },  // Saturday
+            "0": { min: 4, max: 5 }   // Sunday
+        }
+    },
+    jihane: {
+        name: "Jihane",
+        theme: "jihane-theme",
+        schedule: {
+            "1": { min: 3, max: 4 },   // Monday
+            "2": { min: 2, max: 4 },   // Tuesday
+            "3": { min: 3, max: 4 },   // Wednesday
+            "4": { min: 2, max: 3 },   // Thursday
+            "5": { min: 1, max: 1.5 }, // Friday
+            "6": { min: 3, max: 4 },   // Saturday
+            "0": { min: 4, max: 5 }    // Sunday
+        }
+    }
+};
+
+// Global variables
+let currentUser = null;
+let completedLessons = {};
+let currentQuests = [];
+let examDate = new Date('2025-05-26');
+let lastUpdate = null;
+
+// DOM elements
+const loginScreen = document.getElementById('loginScreen');
+const mainApp = document.getElementById('mainApp');
+const userName = document.getElementById('userName');
+const todayDate = document.getElementById('todayDate');
+const studyHours = document.getElementById('studyHours');
+const todayQuests = document.getElementById('todayQuests');
+const upcomingQuests = document.getElementById('upcomingQuests');
+
+// Helper functions
+function formatDate(date) {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return date.toLocaleDateString('ar-MA', options);
+}
+
+function getDayNumber(date) {
+    return date.getDay().toString();
+}
+
+function getStudyHours(user, dayNumber) {
+    return user.schedule[dayNumber];
+}
+
+function updateCountdown() {
+    const now = new Date();
+    const diff = examDate - now;
+    
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+}
+
+function loadCompletedLessons() {
+    const saved = localStorage.getItem(`${currentUser.name}_completedLessons`);
+    if (saved) {
+        completedLessons = JSON.parse(saved);
+    } else {
+        completedLessons = {};
+        Object.keys(lessons).forEach(subject => {
+            completedLessons[subject] = Array(lessons[subject].length).fill(false);
+        });
+        saveCompletedLessons();
+    }
+}
+
+function saveCompletedLessons() {
+    localStorage.setItem(`${currentUser.name}_completedLessons`, JSON.stringify(completedLessons));
+}
+
+function saveCurrentQuests() {
+    localStorage.setItem(`${currentUser.name}_currentQuests`, JSON.stringify(currentQuests));
+    localStorage.setItem(`${currentUser.name}_lastUpdate`, new Date().toISOString());
+}
+
+function loadCurrentQuests() {
+    const saved = localStorage.getItem(`${currentUser.name}_currentQuests`);
+    const savedLastUpdate = localStorage.getItem(`${currentUser.name}_lastUpdate`);
+    
+    if (saved && savedLastUpdate) {
+        currentQuests = JSON.parse(saved);
+        lastUpdate = new Date(savedLastUpdate);
+        
+        // Check if it's a new day
+        const today = new Date();
+        if (lastUpdate.getDate() !== today.getDate() || lastUpdate.getMonth() !== today.getMonth() || lastUpdate.getFullYear() !== today.getFullYear()) {
+            // If it's a new day, generate new quests
+            return false;
+        }
+        
+        // Convert date strings back to Date objects
+        currentQuests.forEach(quest => {
+            if (typeof quest.date === 'string') {
+                quest.date = new Date(quest.date);
+            }
+        });
+        
+        return true;
+    }
+    
+    return false;
+}
+
+function getSubjectForLesson(lesson) {
+    for (const subject in lessons) {
+        if (lessons[subject].includes(lesson)) {
+            return subject;
+        }
+    }
+    return null;
+}
+
+function getIncompleteLessons() {
+    const incomplete = [];
+    
+    Object.keys(lessons).forEach(subject => {
+        lessons[subject].forEach((lesson, index) => {
+            if (!completedLessons[subject][index]) {
+                incomplete.push({
+                    subject: subject,
+                    lesson: lesson,
+                    index: index
+                });
+            }
+        });
+    });
+    
+    return incomplete;
+}
+
+function generateQuests(date, hours) {
+    const incomplete = getIncompleteLessons();
+    if (incomplete.length === 0) return [];
+    
+    // Determine number of quests based on study hours
+    const minQuests = Math.max(2, Math.floor(hours.min));
+    const maxQuests = Math.min(incomplete.length, Math.ceil(hours.max));
+    const numQuests = Math.min(maxQuests, Math.max(minQuests, 2));
+    
+    let quests = [];
+    let subjectsUsed = new Set();
+    let attempts = 0;
+    
+    // Create a queue from incomplete lessons
+    const queue = [...incomplete];
+    
+    // Keep generating quests until we have enough or exhaust our queue
+    while (quests.length < numQuests && queue.length > 0 && attempts < 100) {
+        attempts++;
+        
+        // Get a random item from the queue
+        const randomIndex = Math.floor(Math.random() * queue.length);
+        const item = queue.splice(randomIndex, 1)[0];
+        
+        // If we don't want to repeat subjects and this subject is already used, put it back
+        if (subjectsUsed.has(item.subject) && quests.length < numQuests - 1 && subjectsUsed.size < Object.keys(subjects).length) {
+            queue.push(item);
+            continue;
+        }
+        
+        // Add the item to our quests
+        quests.push({
+            date: new Date(date),
+            subject: item.subject,
+            lesson: item.lesson,
+            lessonIndex: item.index
+        });
+        
+        // Mark this subject as used
+        subjectsUsed.add(item.subject);
+    }
+    
+    return quests;
+}
+
+function updateTodayQuests(forceRegenerate = false) {
+    const today = new Date();
+    const dayNumber = getDayNumber(today);
+    const hours = getStudyHours(currentUser, dayNumber);
+    
+    // Update the study hours display
+    studyHours.textContent = `ساعات الدراسة: ${hours.min} - ${hours.max} ساعات`;
+    
+    // Check if we need to generate new quests or load from localStorage
+    if (forceRegenerate || !loadCurrentQuests()) {
+        // Generate today's quests
+        currentQuests = generateQuests(today, hours);
+        saveCurrentQuests();
+    }
+    
+    // Update the UI
+    todayQuests.innerHTML = '';
+    
+    if (currentQuests.length === 0) {
+        todayQuests.innerHTML = `
+            <div class="alert alert-success">
+                <i class="fas fa-check-circle"></i> لقد أكملت جميع الدروس! أحسنت!
+            </div>
+        `;
+        return;
+    }
+    
+    currentQuests.forEach((quest, index) => {
+        const subject = subjects[quest.subject];
+        
+        const questCard = document.createElement('div');
+        questCard.className = 'card quest-card today mb-3';
+        
+        // Check if the lesson has been completed
+        const isCompleted = completedLessons[quest.subject][quest.lessonIndex];
+        
+        questCard.innerHTML = `
+            <div class="card-body">
+                <h5 class="card-title">
+                    <span class="subject-badge ${subject.badge}">
+                        <i class="${subject.icon}"></i> ${subject.name}
+                    </span>
+                    ${quest.lesson}
+                </h5>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-sm btn-outline-success complete-quest" data-index="${index}" ${isCompleted ? 'disabled' : ''}>
+                        <i class="fas ${isCompleted ? 'fa-check-circle' : 'fa-check'}"></i> 
+                        ${isCompleted ? 'تم الإكمال' : 'أكملت هذا الدرس'}
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        if (isCompleted) {
+            questCard.classList.add('bg-light');
+        }
+        
+        todayQuests.appendChild(questCard);
+    });
+    
+    // Attach event listeners
+    document.querySelectorAll('.complete-quest').forEach(button => {
+        button.addEventListener('click', function() {
+            const index = parseInt(this.getAttribute('data-index'));
+            const quest = currentQuests[index];
+            
+            // Mark lesson as completed
+            completedLessons[quest.subject][quest.lessonIndex] = true;
+            saveCompletedLessons();
+            
+            // Update UI
+            this.parentElement.parentElement.parentElement.classList.add('bg-light');
+            this.disabled = true;
+            this.innerHTML = '<i class="fas fa-check-circle"></i> تم الإكمال';
+            
+            // Refresh lessons list
+            renderLessonsList();
+        });
+    });
+}
+
+function generateCalendar() {
+    const today = new Date();
+    const days = 7; // Generate for the next 7 days
+    upcomingQuests.innerHTML = '';
+    
+    for (let i = 0; i < days; i++) {
+        const date = new Date(today);
+        date.setDate(date.getDate() + i);
+        const dayNumber = getDayNumber(date);
+        const hours = getStudyHours(currentUser, dayNumber);
+        
+        // Skip today as it's shown in the Today tab
+        if (i === 0) continue;
+        
+        const quests = generateQuests(date, hours);
+        
+        const dayCard = document.createElement('div');
+        dayCard.className = 'card mb-4';
+        
+        let dayContent = `
+            <div class="card-header">
+                <h5>${formatDate(date)}</h5>
+                <div class="text-muted">ساعات الدراسة: ${hours.min} - ${hours.max} ساعات</div>
+            </div>
+            <div class="card-body">
+        `;
+        
+        if (quests.length === 0) {
+            dayContent += `
+                <div class="alert alert-success">
+                    <i class="fas fa-check-circle"></i> لقد أكملت جميع الدروس!
+                </div>
+            `;
+        } else {
+            quests.forEach(quest => {
+                const subject = subjects[quest.subject];
+                const isCompleted = completedLessons[quest.subject][quest.lessonIndex];
+                
+                dayContent += `
+                    <div class="card quest-card mb-2 ${isCompleted ? 'bg-light' : ''}">
+                        <div class="card-body">
+                            <h6 class="card-title">
+                                <span class="subject-badge ${subject.badge}">
+                                    <i class="${subject.icon}"></i> ${subject.name}
+                                </span>
+                                ${quest.lesson}
+                                ${isCompleted ? '<span class="badge bg-success ms-2"><i class="fas fa-check"></i> مكتمل</span>' : ''}
+                            </h6>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+        
+        dayContent += `</div>`;
+        dayCard.innerHTML = dayContent;
+        upcomingQuests.appendChild(dayCard);
+    }
+}
+
+function renderLessonsList() {
+    // Render lessons for each subject
+    Object.keys(lessons).forEach(subject => {
+        const container = document.getElementById(`${subject}Lessons`);
+        if (!container) return;
+        
+        container.innerHTML = '';
+        
+        lessons[subject].forEach((lesson, index) => {
+            const isCompleted = completedLessons[subject][index];
+            
+            // Check if it's in today's quests
+            const isTodayTask = currentQuests.some(q => q.subject === subject && q.lessonIndex === index);
+            
+            const lessonItem = document.createElement('div');
+            lessonItem.className = `lesson-item ${isCompleted ? 'completed' : ''} ${isTodayTask ? 'today-task' : ''}`;
+            
+            lessonItem.innerHTML = `
+                <div class="lesson-text">
+                    ${lesson}
+                    ${isTodayTask ? '<span class="badge bg-danger ms-2">درس اليوم</span>' : ''}
+                </div>
+                <div class="check-container">
+                    <i class="fas ${isCompleted ? 'fa-check-circle' : 'fa-circle'} check-icon" 
+                       data-subject="${subject}" data-index="${index}"></i>
+                </div>
+            `;
+            
+            container.appendChild(lessonItem);
+        });
+    });
+    
+    // Add event listeners for checkboxes
+    document.querySelectorAll('.check-icon').forEach(icon => {
+        icon.addEventListener('click', function() {
+            const subject = this.getAttribute('data-subject');
+            const index = parseInt(this.getAttribute('data-index'));
+            
+            // Toggle completion status
+            completedLessons[subject][index] = !completedLessons[subject][index];
+            saveCompletedLessons();
+            
+            // Update UI
+            if (completedLessons[subject][index]) {
+                this.classList.replace('fa-circle', 'fa-check-circle');
+                this.parentElement.parentElement.classList.add('completed');
+            } else {
+                this.classList.replace('fa-check-circle', 'fa-circle');
+                this.parentElement.parentElement.classList.remove('completed');
+            }
+            
+            // Refresh today's quests
+            updateTodayQuests(false); // Don't regenerate, just update UI
+            // Refresh calendar
+            generateCalendar();
+        });
+    });
+}
+
+function setupSearch() {
+    const searchInput = document.getElementById('lessonSearch');
+    
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        
+        document.querySelectorAll('.lesson-item').forEach(item => {
+            const lessonText = item.querySelector('.lesson-text').textContent.toLowerCase();
+            
+            if (lessonText.includes(searchTerm)) {
+                item.style.display = 'flex';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+}
+
+function loadUserSession() {
+    const savedUser = localStorage.getItem('currentUser');
+    if (savedUser && (savedUser === 'lmn' || savedUser === 'jihane')) {
+        login(savedUser);
+        return true;
+    }
+    return false;
+}
+
+function login(userType) {
+    // Set current user
+    currentUser = users[userType];
+    
+    // Save current user to localStorage
+    localStorage.setItem('currentUser', userType);
+    
+    // Update UI
+    document.body.className = currentUser.theme;
+    userName.textContent = currentUser.name;
+    todayDate.textContent = formatDate(new Date());
+    
+    // Load completed lessons
+    loadCompletedLessons();
+    
+    // Generate quests and update UI
+    updateTodayQuests();
+    generateCalendar();
+    renderLessonsList();
+    
+    // Show main app
+    loginScreen.style.display = 'none';
+    mainApp.style.display = 'block';
+}
+
+function logout() {
+    // Remove current user from localStorage
+    localStorage.removeItem('currentUser');
+    
+    // Hide main app and show login screen
+    mainApp.style.display = 'none';
+    loginScreen.style.display = 'block';
+    
+    // Reset UI
+    document.body.className = '';
+}
+
+// Event listeners
+document.getElementById('lmnLogin').addEventListener('click', () => login('lmn'));
+document.getElementById('jihaneLogin').addEventListener('click', () => login('jihane'));
+document.getElementById('logoutBtn').addEventListener('click', logout);
+document.getElementById('completeDay').addEventListener('click', function() {
+    // Force regenerate quests for next day
+    updateTodayQuests(true);
+    // Update calendar
+    generateCalendar();
+    // Show success message
+    alert('تم تحديث الجدول الزمني للأيام القادمة');
+});
+
+// Search setup
+setupSearch();
+
+// Start countdown
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// Check for user session on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Try to load user session
+    if (!loadUserSession()) {
+        // If no session, show login screen
+        loginScreen.style.display = 'block';
+        mainApp.style.display = 'none';
+    }
+});
+
+
+
+
+        </script>
+</body>
+</html>
